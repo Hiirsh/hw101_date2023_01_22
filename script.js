@@ -112,12 +112,14 @@ class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = new Date(birthDate);
-        this.age = Math.floor((Date.now() - this.birthDate.getTime()) / 1000 / 60 / 60 / 24 / 365)
+        this.getAge = function () { 
+            Math.floor((Date.now() - this.birthDate.getTime()) / 1000 / 60 / 60 / 24 / 365) 
+        }
         this.fullName = function () {
             return `${this.firstName} ${this.lastName}`;
         };
         this.toString = function () {
-            return `ID: ${this.id}, Name: ${this.fullName()}, Age: ${this.age}`;
+            return `ID: ${this.id}, Name: ${this.fullName()}, Age: ${this.getAge()}`;
         };
     }
 }
